@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:36:21 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/11/17 18:43:21 by rmonnier         ###   ########.fr       */
+/*   Updated: 2016/11/17 19:42:05 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int			fillit(char **sol_square, t_piece list[27])
 	while (size < 104)
 	{
 		len = size * size;
-		*sol_square = ft_strcnew(len, '.');
+		if ((*sol_square = ft_strcnew(len, '.')) == 0)
+			exit(EXIT_FAILURE);
 		if (fillit_with(*sol_square, size, list, 0) == 1)
 			return (size);
 		free(*sol_square);

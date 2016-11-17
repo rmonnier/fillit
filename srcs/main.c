@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:28:33 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/11/17 18:25:38 by rmonnier         ###   ########.fr       */
+/*   Updated: 2016/11/17 19:41:35 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		resolve_fillit(char *file_name)
 	char			*sol_square;
 	int				size;
 
-	list = ft_memalloc(sizeof(t_piece) * 27);
+	if ((list = ft_memalloc(sizeof(t_piece) * 27)) == 0)
+		exit(EXIT_FAILURE);
 	fd = open(file_name, O_RDONLY);
 	get_pieces_list(fd, list);
 	close(fd);
@@ -35,13 +36,12 @@ int		main(int ac, char **av)
 	int		fd;
 
 	if (ac != 2)
-		ERROR;
-	if ((fd = open(av[1], O_RDONLY)) < 0)
+		USAGE;
+	if ((fd = open(av[1], O_RDONLY)) == -1)
 		ERROR;
 	if (file_checker(fd) == 0)
 		ERROR;
 	close(fd);
-	if (resolve_fillit(av[1]) == 0)
-		ERROR;
+	resolve_fillit(av[1]);
 	return (1);
 }

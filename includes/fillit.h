@@ -21,6 +21,7 @@
 # include "libft.h"
 # include <stdio.h>
 
+# define USAGE {ft_putstr("usage: fillit file_path\n");return (0);}
 # define ERROR {ft_putstr("error\n");return (0);}
 
 typedef struct	s_point
