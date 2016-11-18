@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 15:22:27 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/11/17 18:52:09 by rmonnier         ###   ########.fr       */
+/*   Updated: 2016/11/18 14:26:39 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		check_format(char buf[21], int last)
 	i = 0;
 	while (i < 21)
 	{
-		if (i % 5 == 4 || (i == 20 && last))
+		if (i % 5 == 4 || (i == 20 && last == 0))
 		{
 			if (buf[i] != '\n')
 				return (0);
