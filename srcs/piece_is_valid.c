@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 16:57:03 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/11/17 18:42:55 by rmonnier         ###   ########.fr       */
+/*   Updated: 2016/11/18 10:27:25 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int		check_neighboorhood(char buf[21])
 			if (n == 0)
 				return (0);
 			if (n > 1)
-				two_neighboors++;
+				two_neighboors = 1;
 		}
 		i++;
 	}
@@ -72,8 +72,6 @@ static int		check_neighboorhood(char buf[21])
 int				check_is_valid(char buf[21])
 {
 	if (number_of_points(buf) != 4)
-		return (0);
-	if (!is_one_block(buf))
 		return (0);
 	if (!check_neighboorhood(buf))
 		return (0);

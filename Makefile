@@ -12,8 +12,7 @@
 
 SRCS_NAME	= main.c\
 						file_checker.c\
-						check_is_valid.c\
-						is_one_block.c\
+						piece_is_valid.c\
 						get_pieces_list.c\
 						fillit.c\
 						add_and_remove_pieces.c\
