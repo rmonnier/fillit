@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 10:36:21 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/11/17 19:42:05 by rmonnier         ###   ########.fr       */
+/*   Updated: 2016/11/25 11:14:20 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,26 @@ static int	fillit_with(char *sol_square, int size,
 	return (0);
 }
 
+static int	get_starting_size(t_piece list[27])
+{
+	int		n;
+	int		size;
+
+	n = 0;
+	while (list[n].name != '\0')
+		n++;
+	size = 2;
+	while ((size * size) / 4 < n)
+		size++;
+	return (size);
+}
+
 int			fillit(char **sol_square, t_piece list[27])
 {
 	int		size;
 	int		len;
 
-	size = 2;
+	size = get_starting_size(list);
 	while (size < 104)
 	{
 		len = size * size;
